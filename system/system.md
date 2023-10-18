@@ -66,7 +66,8 @@ int main()
 
 4. 父子进程文件描述符是共享的，但是关闭的时候可以分别关闭，也可以同时在公有代码中关闭
 
-其他:[数据共享解释文档]（https://www.cnblogs.com/xuelisheng/p/10072065.html）
+其他:
+[数据共享解释文档](https://www.cnblogs.com/xuelisheng/p/10072065.html)
 
 在数据类型为全局变量时，父子进程之间的数据不共享
 
@@ -267,6 +268,7 @@ dwProcessAffinityMask 如果是 0 , 代表当前进程只在cpu0 上工作;
 使用CPU亲缘性的好处：设置CPU亲缘性是为了防止进程/线程在CPU的核上频繁切换，从而避免因切换带来的CPU的L1/L2 cache失效，cache失效会降低程序的性能。
 
 ### 进程线程协程上下文切换的性能比较
+[上下文](https://zhuanlan.zhihu.com/p/610481934)
 
 进程上下文包含了进程执行所需要的所有信息。
 
