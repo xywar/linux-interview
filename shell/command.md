@@ -84,6 +84,17 @@ jinbo@fang:command & shell$ date +"%Y-%m-%d"
 Mem:       16313240     3622176    10318124      176640     2372940    12343168
 Swap:       8389628           0     8389628
 ```
+used：已经使用的内存数
+free：完全没有被使用的，空闲的内存数
+shared：是被程序之间可以(已经被)共享使用的内存总额。（当前已经废弃不用；不算在总数里）
+buffers：是指用来给块设备做的缓冲大小，它只记录文件系统的metadata（目录，权限，属性等)以及 tracking in-flight pages
+cached：是用来给文件做缓冲，cached Page。
+total：内存总数
+swap： 这部分是指交换分区，当可用内存少于额定值的时候，就会开会进行交换。可以使用cat /proc/meminfo看额定值。
+(-/+ buffers/cache) 解释（如果有）:
+(-buffers/cache) used内存数：第一部分Mem行中的 used – buffers – cached
+(+buffers/cache) free内存数: 第一部分Mem行中的 free + buffers + cached
+总结：-buffers/cache反映的是被程序实实在在吃掉的内存，而+buffers/cache反映的是可以挪用的内存总数。
 
 ### pwd
 
@@ -136,7 +147,9 @@ Swap:       8389628           0     8389628
 
 touch xx.md 创建空文件 xx.md
 
-top 动态显示当前耗费资源最多的进程信息
+### top 
+动态显示当前耗费资源最多的进程信息
+[top命令详解](http://wuhanyu.site/142/)
 
 ### ls & wc
 
